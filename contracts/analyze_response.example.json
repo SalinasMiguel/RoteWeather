@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "lat": -17.3,
+    "lon": -62.25,
+    "elevation_m": 350.0,
+    "hemisphere": "S",
+    "ag_year_start": "07-01",
+    "seasons": [
+      2023,
+      2024
+    ],
+    "periods": {
+      "before": [
+        2005,
+        2019
+      ],
+      "recent": [
+        2010,
+        2024
+      ],
+      "eval": [
+        2005,
+        2024
+      ]
+    },
+    "et0_hargreaves_share": 0.02,
+    "resolution_note": "POWER ≈ 0.5°×0.625° (≈50 km): clima regional, no de parcela",
+    "assumptions": [
+      "S1. POWER regional: La resolución de POWER es ≈50 km; no sustituye a una estación de campo.",
+      "S2. Suelo y Kc previos: El balance arranca 180 días antes con Dr=0.5·TAW; 120 días con Kc=0.90 y 60 días con Kc=0.20.",
+      "S3. Escorrentía SCS-CN: Se estima con el número de curva de TR-55 según textura y condición previa de humedad (ARC).",
+      "S4. Percolación instantánea: El agua que supera la capacidad de campo drena el mismo día.",
+      "S5. Estrés hídrico lineal: Ks = (TAW - Dr) / ((1 - p)·TAW) según FAO-56.",
+      "S6. Penalización por helada: Reducción multiplicativa en floración (0.3) y fase vegetativa (0.7) si Tmin <= 0 °C.",
+      "S7. Estrés por calor lineal: Reducción entre Tcrit y Tlim de ECOCROP/Teixeira.",
+      "S8. Puntaje de suelo: Índices heurísticos para nitrógeno, rastrojo, cobertura y diversidad de familias.",
+      "S9. Cultivos de cobertura: Ciclo cortado a 90 días, no suman a la productividad cosechable.",
+      "S10. Rendimiento relativo Y_rel: Multiplicativo de estrés hídrico, térmico y heladas, sin interacción suelo-nutrientes.",
+      "S11. Productividad e Índice de rotación: P_y = sum(Y_rel · weight); I_y = P_y / P_max_rotacion.",
+      "S12. Campaña mala: Se define cuando el índice I_y cae por debajo de 0.60."
+    ]
+  },
+  "climate": [
+    {
+      "id": "rain_total",
+      "label": "Lluvia total anual",
+      "unit": "mm",
+      "before": 1250.0,
+      "recent": 1180.0,
+      "delta": -70.0,
+      "p_value": 0.15,
+      "significant": false,
+      "series": [
+        [
+          2023,
+          1200.0
+        ],
+        [
+          2024,
+          1300.0
+        ]
+      ],
+      "source": {
+        "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+        "parameters": [
+          "PRECTOTCORR"
+        ],
+        "period": "campañas 2005/06–2024/25"
+      }
+    },
+    {
+      "id": "hot_days",
+      "label": "Días con calor extremo (Tmax >= 35 °C)",
+      "unit": "días",
+      "before": 18.0,
+      "recent": 28.0,
+      "delta": 10.0,
+      "p_value": 0.04,
+      "significant": true,
+      "series": [
+        [
+          2023,
+          25.0
+        ],
+        [
+          2024,
+          31.0
+        ]
+      ],
+      "source": {
+        "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+        "parameters": [
+          "T2M_MAX"
+        ],
+        "period": "campañas 2005/06–2024/25"
+      }
+    }
+  ],
+  "climatology": {
+    "before": {
+      "rain_mm": [
+        50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0,
+        50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0,
+        50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0
+      ],
+      "et0_mm": [
+        4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0,
+        4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0,
+        4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0
+      ],
+      "tmax_c": [
+        30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0,
+        30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0,
+        30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0
+      ],
+      "tmin_c": [
+        20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0,
+        20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0,
+        20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0
+      ]
+    },
+    "recent": {
+      "rain_mm": [
+        48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0,
+        48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0,
+        48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0, 48.0
+      ],
+      "et0_mm": [
+        4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2,
+        4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2,
+        4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2
+      ],
+      "tmax_c": [
+        31.0, 31.0, 31.0, 31.0, 31.0, 31.0, 31.0, 31.0,
+        31.0, 31.0, 31.0, 31.0, 31.0, 31.0, 31.0, 31.0,
+        31.0, 31.0, 31.0, 31.0, 31.0, 31.0, 31.0, 31.0
+      ],
+      "tmin_c": [
+        20.5, 20.5, 20.5, 20.5, 20.5, 20.5, 20.5, 20.5,
+        20.5, 20.5, 20.5, 20.5, 20.5, 20.5, 20.5, 20.5,
+        20.5, 20.5, 20.5, 20.5, 20.5, 20.5, 20.5, 20.5
+      ]
+    }
+  },
+  "rotations": [
+    {
+      "profile": "actual",
+      "rotation": {
+        "years": [
+          {
+            "slots": [
+              {
+                "crop_id": "soya",
+                "sow_date": "11-16"
+              },
+              {
+                "crop_id": "soya",
+                "sow_date": "05-01"
+              }
+            ]
+          }
+        ]
+      },
+      "slots": [
+        [
+          {
+            "crop_id": "soya",
+            "crop_name": "Soya",
+            "family": "Fabaceae",
+            "harvested": true,
+            "sow_date": "11-16",
+            "sow_offset": 138,
+            "stage_ends": [
+              20,
+              50,
+              110,
+              135
+            ],
+            "sens_window": [
+              45,
+              75
+            ],
+            "prev_mode": "fallow",
+            "mean_yield": 0.82,
+            "failures": 1
+          },
+          {
+            "crop_id": "soya",
+            "crop_name": "Soya",
+            "family": "Fabaceae",
+            "harvested": true,
+            "sow_date": "05-01",
+            "sow_offset": 304,
+            "stage_ends": [
+              20,
+              50,
+              110,
+              135
+            ],
+            "sens_window": [
+              45,
+              75
+            ],
+            "prev_mode": "crop",
+            "mean_yield": 0.58,
+            "failures": 1
+          }
+        ]
+      ],
+      "metrics": {
+        "mean_index": 0.7,
+        "p10_index": 0.52,
+        "mean_productivity": 1.4,
+        "productivity_vs_current": 100.0,
+        "bad_seasons": 1,
+        "n_seasons": 2,
+        "bad_before": 1,
+        "bad_recent": 1,
+        "n_period": 2,
+        "soil": {
+          "total": 42.8,
+          "nitrogen": 45.0,
+          "diversity": 30.0,
+          "erosion": 40.0,
+          "organic_matter": 56.0
+        }
+      },
+      "seasons": [
+        {
+          "season": 2023,
+          "label": "2023/24",
+          "index": 0.8,
+          "productivity": 1.6,
+          "bad": false,
+          "limiting": "ninguno"
+        },
+        {
+          "season": 2024,
+          "label": "2024/25",
+          "index": 0.6,
+          "productivity": 1.2,
+          "bad": true,
+          "limiting": "agua"
+        }
+      ],
+      "card": {
+        "profile": "actual",
+        "title": "Rotación Actual",
+        "why": [
+          {
+            "text": "Es la rotación que usás hoy: línea base de la comparación.",
+            "evidence": [
+              {
+                "label": "Campañas malas",
+                "value": 1,
+                "unit": "de 2",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          }
+        ],
+        "benefits": [
+          {
+            "text": "Línea base sin cambios agronómicos.",
+            "evidence": [
+              {
+                "label": "Productividad base",
+                "value": 100.0,
+                "unit": "%",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "text": "Campaña mala en 1 de 2 campañas.",
+            "evidence": [
+              {
+                "label": "Campañas malas",
+                "value": 1,
+                "unit": "de 2",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              },
+              {
+                "label": "Total campañas",
+                "value": 2,
+                "unit": "campañas",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          },
+          {
+            "text": "Resolución ≈50 km: es el clima regional, no el de tu parcela.",
+            "evidence": [
+              {
+                "label": "Resolución",
+                "value": 50,
+                "unit": "km",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          }
+        ],
+        "changes_vs_current": [],
+        "relaxed_constraints": [],
+        "improves_on_current": false
+      }
+    },
+    {
+      "profile": "adaptada",
+      "rotation": {
+        "years": [
+          {
+            "slots": [
+              {
+                "crop_id": "soya",
+                "sow_date": "11-01"
+              },
+              {
+                "crop_id": "sorgo",
+                "sow_date": "04-16"
+              }
+            ]
+          }
+        ]
+      },
+      "slots": [
+        [
+          {
+            "crop_id": "soya",
+            "crop_name": "Soya",
+            "family": "Fabaceae",
+            "harvested": true,
+            "sow_date": "11-01",
+            "sow_offset": 123,
+            "stage_ends": [
+              20,
+              50,
+              110,
+              135
+            ],
+            "sens_window": [
+              45,
+              75
+            ],
+            "prev_mode": "fallow",
+            "mean_yield": 0.85,
+            "failures": 0
+          },
+          {
+            "crop_id": "sorgo",
+            "crop_name": "Sorgo",
+            "family": "Poaceae",
+            "harvested": true,
+            "sow_date": "04-16",
+            "sow_offset": 289,
+            "stage_ends": [
+              20,
+              55,
+              95,
+              125
+            ],
+            "sens_window": [
+              50,
+              80
+            ],
+            "prev_mode": "crop",
+            "mean_yield": 0.75,
+            "failures": 0
+          }
+        ]
+      ],
+      "metrics": {
+        "mean_index": 0.8,
+        "p10_index": 0.72,
+        "mean_productivity": 1.6,
+        "productivity_vs_current": 114.3,
+        "bad_seasons": 0,
+        "n_seasons": 2,
+        "bad_before": 0,
+        "bad_recent": 0,
+        "n_period": 2,
+        "soil": {
+          "total": 52.5,
+          "nitrogen": 48.0,
+          "diversity": 65.0,
+          "erosion": 42.0,
+          "organic_matter": 55.0
+        }
+      },
+      "seasons": [
+        {
+          "season": 2023,
+          "label": "2023/24",
+          "index": 0.82,
+          "productivity": 1.64,
+          "bad": false,
+          "limiting": "ninguno"
+        },
+        {
+          "season": 2024,
+          "label": "2024/25",
+          "index": 0.78,
+          "productivity": 1.56,
+          "bad": false,
+          "limiting": "ninguno"
+        }
+      ],
+      "card": {
+        "profile": "adaptada",
+        "title": "Rotación Adaptada al Clima",
+        "why": [
+          {
+            "text": "Sorgo reemplaza a soya en segunda siembra: mayor tolerancia a sequía.",
+            "evidence": [
+              {
+                "label": "Tolerancia a estrés",
+                "value": 0.9,
+                "unit": "Ky",
+                "source": {
+                  "dataset": "Regla agronómica",
+                  "parameters": [],
+                  "period": "constante"
+                }
+              }
+            ]
+          }
+        ],
+        "benefits": [
+          {
+            "text": "1 campañas malas menos de 2.",
+            "evidence": [
+              {
+                "label": "Reducción campañas malas",
+                "value": 1,
+                "unit": "campañas",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              },
+              {
+                "label": "Total evaluado",
+                "value": 2,
+                "unit": "campañas",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "text": "Campaña mala en 0 de 2 campañas: ninguna registrada.",
+            "evidence": [
+              {
+                "label": "Campañas malas",
+                "value": 0,
+                "unit": "de 2",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              },
+              {
+                "label": "Total campañas",
+                "value": 2,
+                "unit": "campañas",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          },
+          {
+            "text": "Resolución ≈50 km: es el clima regional, no el de tu parcela.",
+            "evidence": [
+              {
+                "label": "Resolución",
+                "value": 50,
+                "unit": "km",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          }
+        ],
+        "changes_vs_current": [
+          "Soya 11-16 -> Soya 11-01",
+          "Soya 05-01 -> Sorgo 04-16"
+        ],
+        "relaxed_constraints": [],
+        "improves_on_current": true
+      }
+    },
+    {
+      "profile": "regenerativa",
+      "rotation": {
+        "years": [
+          {
+            "slots": [
+              {
+                "crop_id": "soya",
+                "sow_date": "11-16"
+              },
+              {
+                "crop_id": "crotalaria",
+                "sow_date": "04-16"
+              }
+            ]
+          }
+        ]
+      },
+      "slots": [
+        [
+          {
+            "crop_id": "soya",
+            "crop_name": "Soya",
+            "family": "Fabaceae",
+            "harvested": true,
+            "sow_date": "11-16",
+            "sow_offset": 138,
+            "stage_ends": [
+              20,
+              50,
+              110,
+              135
+            ],
+            "sens_window": [
+              45,
+              75
+            ],
+            "prev_mode": "fallow",
+            "mean_yield": 0.85,
+            "failures": 0
+          },
+          {
+            "crop_id": "crotalaria",
+            "crop_name": "Crotalaria",
+            "family": "Fabaceae",
+            "harvested": false,
+            "sow_date": "04-16",
+            "sow_offset": 289,
+            "stage_ends": [
+              15,
+              40,
+              85,
+              90
+            ],
+            "sens_window": [
+              35,
+              65
+            ],
+            "prev_mode": "crop",
+            "mean_yield": 0.9,
+            "failures": 0
+          }
+        ]
+      ],
+      "metrics": {
+        "mean_index": 0.85,
+        "p10_index": 0.8,
+        "mean_productivity": 0.85,
+        "productivity_vs_current": 60.7,
+        "bad_seasons": 0,
+        "n_seasons": 2,
+        "bad_before": 0,
+        "bad_recent": 0,
+        "n_period": 2,
+        "soil": {
+          "total": 68.5,
+          "nitrogen": 80.0,
+          "diversity": 30.0,
+          "erosion": 80.0,
+          "organic_matter": 84.0
+        }
+      },
+      "seasons": [
+        {
+          "season": 2023,
+          "label": "2023/24",
+          "index": 0.85,
+          "productivity": 0.85,
+          "bad": false,
+          "limiting": "ninguno"
+        },
+        {
+          "season": 2024,
+          "label": "2024/25",
+          "index": 0.85,
+          "productivity": 0.85,
+          "bad": false,
+          "limiting": "ninguno"
+        }
+      ],
+      "card": {
+        "profile": "regenerativa",
+        "title": "Rotación Regenerativa de Suelo",
+        "why": [
+          {
+            "text": "Sube el puntaje de suelo de 43 a 69 sobre 100.",
+            "evidence": [
+              {
+                "label": "Puntaje inicial",
+                "value": 43,
+                "unit": "puntos",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              },
+              {
+                "label": "Puntaje final",
+                "value": 69,
+                "unit": "puntos",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              },
+              {
+                "label": "Puntaje máximo",
+                "value": 100,
+                "unit": "puntos",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          }
+        ],
+        "benefits": [
+          {
+            "text": "El 85% de la escorrentía de lluvias intensas cae con el suelo cubierto (antes 43%).",
+            "evidence": [
+              {
+                "label": "Cobertura regenerativa",
+                "value": 85,
+                "unit": "%",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              },
+              {
+                "label": "Cobertura previa",
+                "value": 43,
+                "unit": "%",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "text": "Produce 61% de lo que rinde la actual.",
+            "evidence": [
+              {
+                "label": "Productividad relativa",
+                "value": 61,
+                "unit": "%",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          },
+          {
+            "text": "Resolución ≈50 km: es el clima regional, no el de tu parcela.",
+            "evidence": [
+              {
+                "label": "Resolución",
+                "value": 50,
+                "unit": "km",
+                "source": {
+                  "dataset": "NASA POWER (MERRA-2 / CERES SYN1deg)",
+                  "parameters": [
+                    "PRECTOTCORR",
+                    "T2M_MAX"
+                  ],
+                  "period": "campañas 2023/24–2024/25"
+                }
+              }
+            ]
+          }
+        ],
+        "changes_vs_current": [
+          "Soya 05-01 -> Crotalaria 04-16 (cobertura)"
+        ],
+        "relaxed_constraints": [],
+        "improves_on_current": true
+      }
+    }
+  ]
+}
