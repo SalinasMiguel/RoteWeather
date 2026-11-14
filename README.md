@@ -71,7 +71,7 @@ El proyecto está diseñado bajo una arquitectura desacoplada y orientada a prim
 ## 3. Fuentes de Datos NASA y Fundamentos Agronómicos
 
 ### Datos Satelitales de NASA POWER
-RotaClima consulta la API diaria de **NASA POWER** (comunidad Agroclimatología `AG`) para el periodo continuo `19910101` a `20251231` (12.784 días). Los 10 parámetros canónicos utilizados son:
+RoteWeather consulta la API diaria de **NASA POWER** (comunidad Agroclimatología `AG`) para el periodo continuo `19910101` a `20251231` (12.784 días). Los 10 parámetros canónicos utilizados son:
 
 | Parámetro POWER | Variable en Motor | Unidad | Significado Físico / Agronómico |
 |---|---|---|---|
@@ -250,7 +250,7 @@ La siguiente matriz documenta la correspondencia punto por punto entre las exige
 
 ### Guion de Demo de 3 Minutos (`PLAN.md` §7)
 
-1. **`0:00–0:25` — Portada:** Plantear el problema (*"Field Shift"*): una rotación pensada para el clima de hace 20 años quedó descalzada; RotaClima usa 35 años de datos diarios NASA POWER de forma 100% determinista (sin ML).
+1. **`0:00–0:25` — Portada:** Plantear el problema (*"Field Shift"*): una rotación pensada para el clima de hace 20 años quedó descalzada; RoteWeather usa 35 años de datos diarios NASA POWER de forma 100% determinista (sin ML).
 2. **`0:25–0:50` — Vista (a) Mapa y formulario:** Marcar el lote en Santa Cruz (`-17.30, -62.25`) o cargar el demo en un clic, elegir suelo `franco` y rotación actual `soya@11-16 + soya@05-01` sin sensores ni registro.
 3. **`0:50–1:25` — Vista (b) Tu clima cambió:** Mostrar `before` (`1991–2005`) vs `recent` (`2010–2024`): estación lluviosa `-64.1 días` ($p = 0.0055$), lluvia Q2 `-178.3 mm` ($p = 0.0006$), días $> 35\,^\circ\text{C}$ `+27.7 días` ($p = 0.0084$), junto con métricas marcadas `"No significativo"` (ej. `et0_total` $p = 0.1057$).
 4. **`1:25–2:20` — Vista (c) Comparación, tira de 20 campañas y ficha:** Comparar `Actual` (`1/20` mala en `2016/17`, suelo `47.9/100`) vs `Adaptada` (`0/20`, `112.4%` productividad, suelo `63.8/100`) y `Regenerativa` (`0/20`, `86.3%` productividad, suelo `79.0/100`), abriendo los chips de evidencia NASA.
