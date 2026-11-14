@@ -1,4 +1,4 @@
-# RotaClima 🌱🛰️
+# RoteWeather 🌱🛰️
 
 **Herramienta de Soporte de Decisión Agronómica ante Cambio Climático**  
 *Desarrollada para el desafío "Field Shift" — NASA Space Apps Challenge.*
@@ -10,9 +10,9 @@
 
 ---
 
-## 1. ¿Qué es RotaClima?
+## 1. ¿Qué es RoteWeather?
 
-**RotaClima** es un motor de simulación biofísica y agroclimática diseñado para productores agrícolas y técnicos de campo. Permite evaluar y comparar la rotación de cultivos actual de un lote contra 2 o 3 alternativas agronómicamente viables (perfiles **Adaptada**, **Regenerativa** y **Diversificada**), simulando su desempeño día a día contra **~34 campañas agrícolas reales** (1991–2024) provenientes del archivo satelital y de reanálisis de **NASA POWER**.
+**RoteWeather** es un motor de simulación biofísica y agroclimática diseñado para productores agrícolas y técnicos de campo. Permite evaluar y comparar la rotación de cultivos actual de un lote contra 2 o 3 alternativas agronómicamente viables (perfiles **Adaptada**, **Regenerativa** y **Diversificada**), simulando su desempeño día a día contra **~34 campañas agrícolas reales** (1991–2024) provenientes del archivo satelital y de reanálisis de **NASA POWER**.
 
 Para cada estrategia evaluada, RotaClima cuantifica:
 - **Productividad relativa esperada** respecto al potencial agroecológico.
@@ -21,7 +21,7 @@ Para cada estrategia evaluada, RotaClima cuantifica:
 - **Trazabilidad científica total**: cada afirmación en las fichas de recomendación incluye un **chip de evidencia** que referencia el conjunto de datos de NASA, los parámetros meteorológicos exactos utilizados y la ventana de campañas evaluada.
 
 ### ⚠️ Principio Fundacional: Sin Machine Learning ni Chatbots
-> **RotaClima NO utiliza redes neuronales, modelos de lenguaje opacos ni cajas negras estadísticas.**  
+> **RoteWeather NO utiliza redes neuronales, modelos de lenguaje opacos ni cajas negras estadísticas.**  
 > En agricultura, una recomendación alucinada cuesta cosechas completas. Todo el cálculo de RotaClima es **100% determinista, reproducible y auditable**, fundamentado en primeros principios biofísicos y agronómicos estandarizados internacionalmente (**FAO-56**, **USDA TR-55** y **FAO EcoCrop**). Dos ejecuciones con los mismos datos de entrada producen exactamente la misma respuesta bit por bit.
 
 ---
@@ -238,7 +238,7 @@ Todo valor agronómico en `backend/app/data/crops.json` lleva explícitamente su
 
 La siguiente matriz documenta la correspondencia punto por punto entre las exigencias del reto de NASA Space Apps y los módulos de RotaClima:
 
-| Requisito del Desafío ("Field Shift") | Dónde y Cómo se Resuelve en RotaClima |
+| Requisito del Desafío ("Field Shift") | Dónde y Cómo se Resuelve en RoteWeather |
 |---|---|
 | **$\ge 3$ estrategias de rotación incluida la actual** | **Vista (c) Comparar rotaciones**: Muestra lado a lado la rotación **Actual** ingresada por el productor, la alternativa **Adaptada** (cambio mínimo con fechas reoptimizadas), la alternativa **Regenerativa** (prioriza salud del suelo sin comprometer productividad) y opcionalmente la **Diversificada** (ciclo bianual multiespecie). |
 | **Explicación clara del por qué se sugiere cada rotación** | **Fichas de Decisión (`card.why`)**: Justificación causal basada en hechos medibles reales del motor (en el demo de Santa Cruz, `Adaptada` `mijo@11-16 + soya@03-16` reduce campañas malas de `1` a `0 de 20` y sube productividad al `112.4%`; `Regenerativa` eleva el puntaje de suelo de `47.9` a `79.0 / 100`). |
